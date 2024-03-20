@@ -13,7 +13,7 @@ const pool = mysql
 
 async function getEmployeesTable() {
   const result = await pool.query("SELECT * FROM EMPLOYEES;");
-  return result;
+  return result[0];
 }
 
 async function getEmployeeTable(id) {
@@ -52,3 +52,11 @@ async function resetTable() {
 // const dlt = deleteEmployee(12).then((result)=> console.log(result))
 
 // const reset = resetTable().then((resetedTable)=> console.log(resetedTable[0]))
+
+module.exports = {
+  getEmployeesTable,
+  getEmployeeTable,
+  createEmployee,
+  deleteEmployee,
+  resetTable
+}
