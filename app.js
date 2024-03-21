@@ -4,7 +4,7 @@ const app = express()
 const port = 3001;
 app.use(express.json())
 
-app.get('/getEmployeeTable/:id', async (req, res, next) => {
+app.get('/EmployeeTable/:id', async (req, res, next) => {
     try {
         const id = req.params.id;
         const employee = await emp.getEmployeeTable(id);
@@ -15,7 +15,7 @@ app.get('/getEmployeeTable/:id', async (req, res, next) => {
    
 })
 
-app.get('/getEmployeesTable', async (req, res, next) => {
+app.get('/EmployeesTable', async (req, res, next) => {
     try {
         const employees = await emp.getEmployeesTable();
         res.json(employees);
@@ -25,7 +25,7 @@ app.get('/getEmployeesTable', async (req, res, next) => {
     }
 })
 
-app.post('/createEmployee', async(req,res) =>{
+app.post('/create', async(req,res) =>{
     try{
         const {first_name, last_name, department, salary, hire_date} = req.body
         const newEmp = await emp.createEmployee(first_name, last_name, department, salary, hire_date)
